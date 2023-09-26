@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+main{
+    width: fit-content;
+    height: auto;
+}
+
 #header{
     display: flex;
     position: sticky;

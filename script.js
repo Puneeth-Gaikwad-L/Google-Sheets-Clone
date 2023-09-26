@@ -13,7 +13,6 @@ for (let i = 64; i <= 90; i++) {
 
         header.appendChild(bold);
     }
-
 }
 
 
