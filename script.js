@@ -4,9 +4,9 @@ let rows = 0;
 
 for (let i = 64; i <= 90; i++) {
     if (i == 64) {
-        const bold = document.createElement("b");
-        bold.innerText = "Sl.no";
-        header.appendChild(bold);
+        const startCell = document.createElement("div");
+        startCell.className = "startCell";
+        header.appendChild(startCell);
     } else {
         const bold = document.createElement("b");
         bold.innerHTML = String.fromCharCode(i);
@@ -27,6 +27,9 @@ function addCells() {
             row.appendChild(bold);
         } else {
             const cell = document.createElement("div");
+            cell.id = `${String.fromCharCode(i)}${rows}`
+            cell.contentEditable = true;
+            cell.addEventListener("focus", onFocus)
             row.appendChild(cell);
         }
     }
@@ -42,5 +45,9 @@ function createRows(){
 createRows();
 
 
-
+function onFocus(e){
+console.log(e.target.id);
+let cellName = document.getElementById("cellName");
+cellName.innerText = e.target.id;
+}
 
