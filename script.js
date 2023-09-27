@@ -4,9 +4,9 @@ let rows = 0;
 
 for (let i = 64; i <= 90; i++) {
     if (i == 64) {
-        const startCell = document.createElement("div");
-        startCell.className = "startCell";
-        header.appendChild(startCell);
+        const bold = document.createElement("b");
+        bold.className="startCell";
+        header.appendChild(bold);
     } else {
         const bold = document.createElement("b");
         bold.innerHTML = String.fromCharCode(i);
