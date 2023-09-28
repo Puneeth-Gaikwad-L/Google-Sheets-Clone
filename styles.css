@@ -4,15 +4,17 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 #body {
     width: fit-content;
 }
 
 main {
-    width: 95vw;
-    height: 80vh;
+    width: 100vw;
+    height: 90vh;
     overflow-x: scroll;
     overflow-y: scroll;
+    margin: auto;
 }
 
 #header {
@@ -73,11 +75,14 @@ main {
 
 #cellName {
     width: 100px;
-    height: 80%;
+    height: 20px;
     border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .startCell {
@@ -87,4 +92,66 @@ main {
     top: 0;
     left: 0;
     z-index: 200;
+}
+
+header{
+    width: 100vw;
+    background-color: #f9fbfd;
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-bar{
+    width: 95%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #edf2fa;
+    margin: auto;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.font-styles{
+    height: 50%;
+    width: 110px;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.formating{
+    width: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+hr{
+    height: 60%;
+    background-color: lightgray;
+}
+
+.color-formating{
+    display: flex;
+}
+
+#bold, #italic, #underline{
+    cursor: pointer;
+}
+
+.active{
+    background-color: #d3e3fd;
+}
+
+.style-btn{
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.style-btn:hover{
+    background-color: #dbdbdb;
+    cursor: pointer;
 }
