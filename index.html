@@ -22,10 +22,12 @@
                 <div id="bold" onclick="onClickBold(this)" class="style-btn"><span class="material-symbols-outlined">
                         format_bold
                     </span></div>
-                <div id="italic" onclick="onClickItalic(this)" class="style-btn"><span class="material-symbols-outlined">
+                <div id="italic" onclick="onClickItalic(this)" class="style-btn"><span
+                        class="material-symbols-outlined">
                         format_italic
                     </span></div>
-                <div id="underline" onclick="onClickUnderline(this)" class="style-btn"><span class="material-symbols-outlined">
+                <div id="underline" onclick="onClickUnderline(this)" class="style-btn"><span
+                        class="material-symbols-outlined">
                         format_underlined
                     </span></div>
             </div>
@@ -33,9 +35,12 @@
             <hr>
 
             <div class="formating">
-                <span class="material-symbols-outlined style-btn active">format_align_left</span>
-                <span class="material-symbols-outlined style-btn">format_align_justify</span>
-                <span class="material-symbols-outlined style-btn">format_align_right</span>
+                <div data-value="left" onclick="textAlign(this)" class="material-symbols-outlined style-btn active text-align">
+                    format_align_left</div>
+                <div data-value="center" onclick="textAlign(this)" class="material-symbols-outlined style-btn text-align">
+                    format_align_justify</div>
+                <div data-value="right" onclick="textAlign(this)" class="material-symbols-outlined style-btn text-align">
+                    format_align_right</div>
             </div>
 
             <hr>
@@ -45,14 +50,14 @@
                     <label for="color-picker"><span class="material-symbols-outlined style-btn">
                             format_color_text
                         </span></label>
-                    <input type="color" id="color-picker" style="width: 0; height: 0;">
+                    <input onchange="textColor(this)" type="color" id="color-picker" style="width: 0; height: 0;">
                 </div>
 
                 <div id="bgcolor-picker">
                     <label for="bg-color-picker"><span class="material-symbols-outlined style-btn">
-                        format_color_fill
+                            format_color_fill
                         </span></label>
-                    <input type="color" id="bg-color-picker" style="width: 0; height: 0;">
+                    <input onchange="backgroundColor(this)" type="color" id="bg-color-picker" style="width: 0; height: 0;">
                 </div>
             </div>
         </div>

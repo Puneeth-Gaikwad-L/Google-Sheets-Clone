@@ -11,7 +11,7 @@
 
 main {
     width: 100vw;
-    height: 90vh;
+    height: 85vh;
     overflow-x: scroll;
     overflow-y: scroll;
     margin: auto;
@@ -99,6 +99,8 @@ header{
     background-color: #f9fbfd;
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 0;
 }
 
 .tool-bar{
