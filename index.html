@@ -35,11 +35,11 @@
             <hr>
 
             <div class="formating">
-                <div data-value="left" onclick="textAlign(this)" class="material-symbols-outlined style-btn active text-align">
+                <div id="left-align" data-value="left" onclick="textAlign(this)" class="material-symbols-outlined style-btn text-align">
                     format_align_left</div>
-                <div data-value="center" onclick="textAlign(this)" class="material-symbols-outlined style-btn text-align">
+                <div id="center-align" data-value="center" onclick="textAlign(this)" class="material-symbols-outlined style-btn text-align">
                     format_align_justify</div>
-                <div data-value="right" onclick="textAlign(this)" class="material-symbols-outlined style-btn text-align">
+                <div id="right-align" data-value="right" onclick="textAlign(this)" class="material-symbols-outlined style-btn text-align">
                     format_align_right</div>
             </div>
 
@@ -59,6 +59,22 @@
                         </span></label>
                     <input onchange="backgroundColor(this)" type="color" id="bg-color-picker" style="width: 0; height: 0;">
                 </div>
+            </div>
+
+            <div class="font-size">
+                <select name="" id="" >
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="14">14</option>
+                    <option value="18">18</option>
+                    <option value="24" selected>24</option>
+                    <option value="36">36</option>
+                </select>
             </div>
         </div>
 

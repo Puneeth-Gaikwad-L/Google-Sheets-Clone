@@ -1,6 +1,13 @@
 const header = document.getElementById("header");
 const body = document.getElementById("body");
 let rows = 0; //to keep count of number of rows dynamically
+const boldButton = document.getElementById("bold");
+const italicButton = document.getElementById("italic");
+const underlineButton = document.getElementById("underline");
+
+const leftAlignBtn = document.getElementById("left-align");
+const centerAlignBtn = document.getElementById("center-align");
+const rightAlignBtn = document.getElementById("right-align");
 
 // creating the rows containing A, B, C...
 for (let i = 64; i <= 90; i++) {
@@ -53,28 +60,82 @@ let activeOptionState;
 // function will be called when a cell is focused
 let activeCell;
 
+
 function onFocus(e) {
     if (activeCell) {
+        if (activeCell.id === e.target.id) {
+            return;
+        }
         activeCell.style.border = "1px solid #dbdbdb";
     }
     let cellName = document.getElementById("cellName");
     activeCell = e.target;
-    activeCell.style.border = "2px solid blue";
+    activeCell.style.border = "1px solid blue";
     cellName.innerText = e.target.id;
 
     const computedStyle = getComputedStyle(activeCell);
 
     // stores the formatting data related to the active cell
     activeOptionState = {
+        id: e.target.id,
         fontFamily: computedStyle.fontFamily,
-        isBoldSelected: computedStyle.fontSize === "600",
-        isItalicSelected: computedStyle.fontFamily === "italic",
-        isUnderLineSelected: computedStyle.textDecoration === "underline",
+        isBoldSelected: computedStyle.fontWeight === "600",
+        isItalicSelected: computedStyle.fontStyle === "italic",
+        isUnderLineSelected: computedStyle.textDecoration.includes("underline"),
         textAlign: computedStyle.textAlign,
         textColor: computedStyle.color,
         backgroundColor: computedStyle.backgroundColor,
         fontSize: computedStyle.fontSize,
     };
+    highlightButtons()
+}
+
+function toggleButton(button, isSelected) {
+    if (isSelected) {
+        button.classList.add("active");
+    } else {
+        button.classList.remove("active");
+    }
+}
+
+function highlightButtons() {
+    // console.log(computedStyle);
+    // if (activeOptionState.isBoldSelected) {
+    //     boldButton.classList.add("active");
+    // } else {
+    //     boldButton.classList.remove("active");
+    // }
+
+    toggleButton(boldButton, activeOptionState.isBoldSelected);
+
+    // if (activeOptionState.isItalicSelected) {
+    //     italicButton.classList.add("active")
+    // } else {
+    //     italicButton.classList.remove("active");
+    // }
+
+    toggleButton(italicButton, activeOptionState.isItalicSelected);
+
+
+    // if (activeOptionState.isUnderLineSelected) {
+    //     underlineButton.classList.add("active");
+    // } else {
+    //     underlineButton.classList.remove("active");
+    // }
+
+    toggleButton(underlineButton, activeOptionState.isUnderLineSelected);
+
+    if (activeOptionState.textAlign === "center") {
+        centerAlignBtn.classList.add("active");
+    } else {
+        centerAlignBtn.classList.remove("active");
+    }
+
+    if (activeOptionState.textAlign === "right") {
+        rightAlignBtn.classList.add("active");
+    } else {
+        rightAlignBtn.classList.remove("active");
+    }
 }
 
 // function for toggling boldness
@@ -158,7 +219,6 @@ function textColor(textColorInput) {
 
 function backgroundColor(backgroundInput) {
     let selectedValue = backgroundInput.value;
-    console.log(selectedValue);
     if (activeCell) {
         activeCell.style.backgroundColor = selectedValue;
         activeOptionState.backgroundColor = selectedValue;
